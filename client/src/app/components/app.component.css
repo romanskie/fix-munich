@@ -1,0 +1,70 @@
+#navbar-drawer{
+	background-color: white;
+}
+
+.navbar-top__switch-view{
+	cursor: pointer;
+}
+
+.dropdown-menu-right{
+	position: absolute;
+    top: 32px;
+    left: -250px;
+    will-change: top, left;
+}
+
+.dropdown-menu .photo-container{
+	float: left;
+	width: 100px;
+	padding: 5px 10px 5px 10px;
+}
+
+.photo-container img{
+	width: 50px;
+}
+
+.photo-container i{
+	font-size: 40px;
+}
+
+.infos-container{
+	width: 182px;
+	float: left;
+}
+
+.dropdown-menu .user_name, .dropdown-menu .user_email, .dropdown-menu .user_profile{
+	float: left;
+	font-size: 13px;
+}
+
+.dropdown-menu .user_name{
+	margin-top: 10px;
+}
+
+.dropdown-menu .user_email{
+	color: rgb(102, 102, 102);
+}
+
+.dropdown-menu .user_profile{
+	margin-top: 5px;
+}
+
+@keyframes fade { 
+	from { opacity: 0.5; } 
+  }
+  
+.animated-marker {
+	animation: fade 1s infinite alternate;
+}
+
+.leaflet-control-layers-toggle {
+	display: none !important;
+}
+
+.my__app-info-container{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+}

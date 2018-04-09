@@ -1,0 +1,29 @@
+<div class="container d-flex vh_without_nav">
+  <div class="row justify-content-center align-self-center card mx-auto" style="max-width: 25rem;">
+    <div class="card-body">
+      <h4 class="card-title">Anmelden</h4>
+      <form class="pt-1">
+        <div class="form-group">
+          <label for="inputEmailLogin" class="bmd-label-floating">E-Mail-Adresse</label>
+          <input type="email" id="inputEmailLogin" class="form-control" required autocomplete="on" [value]="loginEmailAddress" (input)="loginEmailAddress = $event.target.value">
+          <span class="bmd-help">Wir geben Ihre E-Mail-Adresse nicht an Dritte weiter.</span>
+        </div>
+        <div class="form-group">
+          <label for="inputPasswordLogin" class="bmd-label-floating">Passwort</label>
+          <input type="password" id="inputPasswordLogin" class="form-control" required autocomplete="off" [value]="loginPassword" (input)="loginPassword = $event.target.value">
+          <span class="bmd-help">Bitte geben Sie hier Ihr Passwort ein.</span>
+        </div>
+        <!--button class="btn btn-default">Cancel</button-->
+        <button class="btn btn-primary btn-raised w-100 mt-3" type="button" (click)="login()">anmelden</button>
+        <div class="mt-1">
+          <span>Noch nicht registriert? Hier geht's zur
+            <a [routerLink]="['/registration']">Registrierung</a>.</span>
+        </div>
+        <div class="text-center mt-3">
+            <p><strong>ODER</strong></p>
+        </div>
+        <button class="btn btn-google btn-raised w-100 mt-1" type="button" (click)="auth.googleLogin()">mit Google-Konto anmelden</button>
+      </form>
+    </div>
+  </div>
+</div>

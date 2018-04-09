@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+.leaflet-container {
+	font: inherit !important;
+}
+
+.leaflet-control-geosearch.bar form {
+	width: 350px;
+	height: 48px;
+	background-color: white;
+	margin-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
+	border: unset !important;
+	border-radius: 2px !important;
+	border-bottom: 1px solid transparent !important;
+}
+
+.leaflet-control-geosearch.bar form input{
+	padding-left: 5px;
+	padding-right: 10px;
+	margin-top: 7px;
+	width: calc( 100% - 48px) !important;
+	min-width: unset !important;
+	font-size: 15px;
+	border: none;
+	border-radius: unset;
+	border-right: 1px solid #e6e6e6;
+}
+
+.leaflet-control-geosearch form input:focus{
+	outline: none;
+}
+
+.leaflet-control-geosearch.bar form a.reset{
+	display: inline-block;
+	top: 7px;
+	right: 10px;
+}
+
+.leaflet-control-geosearch form .results.active{
+	margin-top: 7px;
+	padding: 0;
+}
+
+.leaflet-control-geosearch form .results.active div{
+	background-color: white;
+	padding: 10px 15px 10px 15px;
+}
+
+.leaflet-control-geosearch form .results.active div:not(:first-child){
+  border-top: 1px solid #e6e6e6;
+  /*padding: 5px 0px 5px 5px;*/
+}
+
+.leaflet-control-geosearch form .results.active div:hover, .leaflet-control-geosearch form .results.active div.active{
+  background-color: #EEEEEE;
+  cursor: default;
+}
+
+.leaflet-touch .leaflet-bar {
+  border: none !important;
+}
+
+.leaflet-control-geosearch .leaflet-bar-part {
+  display: none;
+}
+
+
+@media (max-width: 768px){
+  .leaflet-control-geosearch, .leaflet-control-geosearch form {
+		width: calc(100% - 10px);
+	}
+	.leaflet-top.leaflet-left{
+		width: 100%;
+	}
+}
+
+
+i:focus, button:focus, div:focus{
+	outline: none;
+}
+
+.vh_without_nav{
+	height: calc(100vH - 53px);
+}
+
+.my__text-secondary {
+	color: rgba(0,0,0,.26);
+}
+
+.my__badge{
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.my__icon-in-btn{
+	vertical-align: bottom;
+	margin-right: 3px;
+}

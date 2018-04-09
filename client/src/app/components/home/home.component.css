@@ -1,0 +1,17 @@
+.home__leaflet-container {
+  height: calc(100vH - 53px);
+}
+
+
+@keyframes fade { 
+  from { opacity: 0.5; } 
+}
+
+.animated-marker {
+  animation: fade 1s infinite alternate;
+}
+
+
+.leaflet-control-layers-toggle {
+	display: none !important;
+}

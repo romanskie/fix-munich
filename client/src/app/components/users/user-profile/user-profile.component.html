@@ -1,0 +1,8 @@
+<div *ngIf="auth.user | async as user" class="container pt-3 pb-3">
+    <h3>Du bist als {{ user.displayName }} eingeloggt.</h3>
+    <img  [src]="user.photoURL">
+    <p>UID: {{ user.uid }}</p>
+    <p>Benutzerrolle: {{ user.role.isAdmin ? 'Admin' : 'Bürger' }}</p>
+   <!-- <p>Favorite Color: {{ user?.favoriteColor }} </p> -->
+</div>
+

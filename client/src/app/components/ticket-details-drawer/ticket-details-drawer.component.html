@@ -1,0 +1,54 @@
+<div id="details-drawer" class="details-drawer">
+  <button (click)="close()" type="button" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div *ngIf="!isLoading">
+    <div id="details-drawer-carousel" class="carousel slide" data-interval="false" *ngIf="currentTicket?.images">
+      <ol class="carousel-indicators" *ngIf="currentTicket?.images.length > 1">
+        <li data-target="#details-drawer-carousel" [attr.data-slide-to]="i" [ngClass]="{'active': i === 0}" *ngFor="let img of currentTicket?.images; let i = index;"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item" [ngClass]="{'active': i === 0}" *ngFor="let img of currentTicket?.images; let i = index;">
+          <!--img class="d-block w-100" [src]="img.url" alt="First slide"-->
+          <div class="details-drawer-image" [style.background-image]="getImgUrl(img)"></div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#details-drawer-carousel" role="button" data-slide="prev" *ngIf="currentTicket?.images.length > 1">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#details-drawer-carousel" role="button" data-slide="next" *ngIf="currentTicket?.images.length > 1">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="details-drawer-header pt-3 pb-3 pl-3">
+      <h5>{{ currentTicket?.description }}</h5>
+      <div>Benutzer: {{ currentTicket?.user ? currentTicket.user.name : 'anonym' }}</div>
+    </div>
+    <div class="container pt-3">
+      <div class="row mt-3 col">
+        <span class="badge badge-pill badge-primary my__badge">{{ currentTicket?.category.name}}</span>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <strong>Gemeldet am</strong> {{ currentTicket?.createdAt | date: 'dd.MM.yyyy'}}
+          <strong>um</strong> {{ currentTicket?.createdAt | date: 'HH:mm'}} Uhr
+        </div>
+        <div class="col">
+          <strong>Meldung</strong> {{ currentTicket?.id }}
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <strong>Status: </strong> {{ currentTicket?.state }}
+        </div>
+        <div class="col">
+          <strong>Adresse: </strong>{{ currentTicket.address ? currentTicket.address : 'Die Adresse konnte nicht gefunden werden'}}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isLoading">
+      isLoading
+    </div>
+  </div>

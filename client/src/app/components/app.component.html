@@ -1,0 +1,79 @@
+<div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+  <header class="bmd-layout-header">
+    <div class="navbar navbar-light bg-faded">
+      <div>
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#navbar-drawer">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <img src="../assets/app-logo.png" class="ml-2 d-none d-md-inline-block" style="vertical-align:bottom;" routerLink="/"/>
+      </div>
+      <div>
+        <button type="button" class="btn btn-default float-left" routerLink="addTicket">neue Meldung</button>
+        <div class="dropdown float-left" *ngIf="authService.user | async as user">
+          <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="lr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">account_circle</i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="lr1">
+            <div>
+              <div class="photo-container">
+                <img [src]="user.photoURL" class="rounded-circle" *ngIf="user.photoURL">
+                <i class="material-icons" *ngIf="!user.photoURL">face</i>
+              </div>
+              <div class="infos-container">
+                <span class="user_name">
+                  <strong>{{ user.displayName }}</strong>
+                </span>
+                <span class="user_email">{{ user.email }}</span>
+                <a class="user_profile" routerLink="profile">Mein Profil</a>
+              </div>
+              <a class="dropdown-item" (click)="authService.signOut()" href="">Abmelden</a>
+            </div>
+          </div>
+        </div>
+        <button *ngIf="!(authService.user | async)" type="button" class="btn btn-default d-none d-md-inline-block" routerLink="login">Anmelden</button>
+        <button *ngIf="!(authService.user | async)" type="button" class="btn bmd-btn-icon ml-3 d-inline-block d-md-none" style="vertical-align:top;" routerLink="login">
+          <i class="material-icons">account_circle</i>
+        </button>
+        <button type="button" class="btn bmd-btn-icon ml-3" (click)="showAppInfo = !showAppInfo" style="vertical-align:top;">
+          <i class="material-icons">info_outline</i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div id="navbar-drawer" class="bmd-layout-drawer bg-faded">
+    <header>
+      <a class="navbar-brand" routerLink=""><img src="../assets/app-logo.png" class="ml-2 d-none d-md-inline-block" style="vertical-align:bottom;"/></a>
+    </header>
+    <ul class="list-group">
+      <a class="list-group-item" routerLink="">Start</a>
+      <a class="list-group-item" routerLink="addTicket">Neue Meldung</a>
+      <a class="list-group-item" routerLink="tickets">Meldungen</a>
+      <a class="list-group-item" routerLink="unapprovedTickets" *ngIf="isAdmin()">Meldungen ohne Freigabe</a>
+    </ul>
+  </div>
+  <main class="bmd-layout-content" [@routerAnimation]="getRouteAnimation(route)">
+    <router-outlet #route="outlet"></router-outlet>
+  </main>
+  <div class="container my__app-info-container">
+    <div class="card mb-2" *ngIf="showAppInfo">
+      <div class="card-header text-center">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="showAppInfo = !showAppInfo">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <img src="../assets/app-logo.png"/>
+      </div>
+      <div class="card-body">
+        <h6>Was machen wir?</h6>
+        <p class="card-text">fix munich ist eine Bürgerplatform, auf der Mängel, die durch die Stadt oder Gemeinde verwaltet werden sollen, gemeldet
+          werden können. Wir geben deine Meldung an die jeweilige Stadt bzw. Gemeinde zur Bearbeitung weiter. Du kannst alle
+          erfassten Mängel auf der Karte einsehen.</p>
+        <h6>Wie funktioniert's?</h6>
+        <p class="card-text">Einfach neue Meldung auswählen, Meldung kurz beschreiben, eine passende Kategorie auswählen, ein Foto der Meldung
+          hochladen und die Position der Meldung auf der Karte auswählen. Das war's!</p>
+        <h6>Wieso das Ganze?</h6>
+        <p class="card-text">Städte und Gemeinden können mit fix munich Kosten einsparen, da die Mängelerfassung durch euch, die Bürger, übernommen wird. Außerdem können durch fix munich mehr Mängel erfasst und beseitigt werden, was zu höherer Lebensqualität in Städten beiträgt.</p>
+      </div>
+    </div>
+  </div>
+</div>

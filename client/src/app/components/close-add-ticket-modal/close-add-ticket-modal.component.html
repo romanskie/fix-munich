@@ -1,0 +1,16 @@
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-header">
+    <h4 class="modal-title">Meldung verwerfen?</h4>
+    <button (click)="activeModal.dismiss('Cross click')" type="button" class="btn btn-secondary float-right">
+      <i class="material-icons ticket-details__back">close</i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Wenn du diese Seite verlässt, gehen alle ungespeicherten Änderungen zu deiner Meldung verloren. Bist du dir sicher, dass
+      du die Seite verlassen möchtest?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-raised btn-secondary mt-3 mb-3 mr-2" (click)="activeModal.dismiss('Cross click')">Abbrechen</button>
+    <button type="button" class="btn btn-raised btn-primary mt-3 mb-3 mr-3" (click)="activeModal.dismiss('Cross click'); goToStartOverview();">Seite verlassen</button>
+  </div>
+</div>

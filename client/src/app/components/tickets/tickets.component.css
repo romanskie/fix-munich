@@ -1,0 +1,51 @@
+.tickets__btn-sort-desc::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-left: .3em solid transparent;
+}
+
+.tickets__btn-sort-asc::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-bottom: .3em solid;
+  border-right: .3em solid transparent;
+  border-left: .3em solid transparent;
+}
+
+.tickets__active-filter{
+	margin-right: 5px;
+	padding: 10px;
+}
+
+.tickets__filter-active{
+	margin-right: 5px;
+	padding: 10px;
+}
+
+.tickets__filter-active i{
+	font-size: 16px;
+}
+
+.ticket__item {
+  border-top: 1px solid rgba(0, 0, 0, .12);
+  border-radius: .125rem;
+}
+
+.ticket__item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  border-radius: .125rem;
+}
+
+.ticket__item h6 a{
+  color: #009688;
+}

@@ -1,0 +1,114 @@
+<div class="container pt-3 pb-3">
+  <div class="row">
+    <div class="col">
+        <button [routerLink]="['/']" type="button" class="btn btn-secondary float-right">
+          <i class="material-icons ticket-details__back">close</i>
+        </button>
+        <h4>{{ ticketType === "/tickets" ? "Meldungen" : "Meldungen ohne Freigabe" }}</h4>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          <div class="btn-group">
+            <button class="btn btn-raised btn-secondary dropdown-toggle" type="button" id="buttonMenu1" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Kategorie
+            </button>
+            <div class="dropdown-menu" aria-labelledby="buttonMenu1">
+              <div *ngFor="let category of categories | async">
+                <div (click)="filterCategory(category)" class="dropdown-item" href="" *ngIf="isFilterActive(category, 'category')">{{ category.name }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div *ngFor="let activeCatFilter of activeCategoriesFilters">
+            <h5 class="float-left">
+              <span class="badge badge-primary tickets__filter-active">{{activeCatFilter.name}}
+                <i (click)="removeFilter(activeCatFilter)" class="material-icons">close</i>
+              </span>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <button (click)="sortBy()" type="button" [ngClass]="{'tickets__btn-sort-desc': sortBy$.value === 'desc', 'tickets__btn-sort-asc': sortBy$.value === 'asc'}"
+        class="btn btn-primary">Gemeldet am</button>
+      <div *ngIf="tickets$ | async; let tickets; else loading">
+        <div class="container">
+          <div *ngIf="!tickets.length" class="text-center">
+              <i class="material-icons ticket-details__back" style="font-size:34px;">warning</i>
+              <p>Es konnten keine Tickets gefunden werden</p>
+          </div>
+          <div class="ticket__item pt-3 pb-3" *ngFor="let ticket of tickets">
+            <div class="row">
+              <div class="col-md-3">
+                <img [routerLink]="['/tickets/' + ticket.id + ticketType]" [src]="getThumbnailUrl(ticket)" class="rounded img-thumbnail mx-auto d-block"
+                />
+              </div>
+              <div class="col-md-9">
+                <div class="row mt-3 mt-md-0">
+                  <div class="col-md-12">
+                    <h6>
+                      <a [routerLink]="['/tickets/' + ticket.id + ticketType]">{{ ticket.description }}</a>
+                    </h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <span>
+                      <strong>Gemeldet am</strong> {{ ticket?.createdAt | date: 'dd.MM.yyyy'}} | {{ ticket?.createdAt | date: 'HH:mm'}}
+                      Uhr
+                    </span>
+                  </div>
+                  <div class="col-md-6">
+                    <span>
+                      <strong>Meldung</strong> {{ticket.id}}</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <span>
+                      <strong>Status:</strong> {{ticket.state}}</span>
+                  </div>
+                  <div class="col-md-6">
+                    <span>
+                      <strong>Adresse: </strong>{{ticket.address ? ticket.address : 'Die Adresse konnte nicht gefunden werden'}}</span>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col">
+                    <h6 class="float-left">
+                      <span class="badge badge-pill badge-primary my__badge">{{ ticket.category.name }}</span>
+                    </h6>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <!--button [routerLink]="['/tickets/' + ticket.id + ticketType]" type="button" class="btn btn-secondary">
+                        <i class="material-icons my__icon-in-btn">info</i>Details
+                    </button-->
+                    <a class="my__text-secondary" [routerLink]="['/tickets/' + ticket.id + ticketType]">
+                      <i class="material-icons my__icon-in-btn">info</i>Details</a>
+                  </div>
+                  <div class="col-md-6">
+                     <!-- <a class="my__text-secondary" [routerLink]="['/start/' + ticket.id]"> -->
+                    <a class="my__text-secondary" (click)="jumpToTicketMarker(ticket)" href="javascript:;">
+                      <i class="material-icons my__icon-in-btn">place</i>Auf Karte anzeigen</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #loading>Wird geladen&hellip;</ng-template>
+    </div>
+  </div>
+</div>
+<app-loading-spinner [(show)]="spinnerShowing" name="filterTicketsSpinner"></app-loading-spinner>

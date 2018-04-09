@@ -1,0 +1,214 @@
+{
+  "indexes": [
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`1niod6pZE42EdIEWz4q0`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`1niod6pZE42EdIEWz4q0`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`6vLhfZjKXz4PA2cmjNWG`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`6vLhfZjKXz4PA2cmjNWG`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`PcG5i8Mavr5fmQZGNk6J`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`PcG5i8Mavr5fmQZGNk6J`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`QV5rih6bqGgL6LmA0ltD`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`QV5rih6bqGgL6LmA0ltD`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`TYRDPKUEzytQMZ2LFlJU`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`TYRDPKUEzytQMZ2LFlJU`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`UuN9cmQMRUgG4LFfUMod`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`UuN9cmQMRUgG4LFfUMod`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`W950QHMM4zMWZ4KpouJH`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`W950QHMM4zMWZ4KpouJH`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`dZDda8Z9DEWb6AGX5tcw`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`dZDda8Z9DEWb6AGX5tcw`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`f36IVfZ9i1jZdnGRm0C9`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`f36IVfZ9i1jZdnGRm0C9`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`g7OABdKVAsiPdsP75PP4`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`g7OABdKVAsiPdsP75PP4`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`ggxssoqg69BrRnQouwxj`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`ggxssoqg69BrRnQouwxj`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`lvgNN6hOyI56ljBd5Amv`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`lvgNN6hOyI56ljBd5Amv`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`mHdSzks1OKmVNkYgBvP6`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`mHdSzks1OKmVNkYgBvP6`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`oujg6px6WrzzVyBqhRze`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`oujg6px6WrzzVyBqhRze`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`tnKOO0Eu4oAHKCasjX8r`", "mode": "ASCENDING"},
+        {"fieldPath" : "createdAt", "mode": "ASCENDING"}
+      ]
+    },
+    {
+      "collectionId" : "tickets",
+      "fields" : [
+        {"fieldPath" : "categoriesQuery.`tnKOO0Eu4oAHKCasjX8r`", "mode": "DESCENDING"},
+        {"fieldPath" : "createdAt", "mode": "DESCENDING"}
+      ]
+    }
+  ]
+}

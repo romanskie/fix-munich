@@ -1,0 +1,10 @@
+<app-ticket-details-drawer></app-ticket-details-drawer>
+<div class="home__leaflet-container"
+        leaflet
+        [leafletOptions]="defaultMapOptions"
+        [leafletLayersControl]="layerControlsBehaviorSubject | async"
+        [leafletLayersControlOptions]="layersControlOptions"
+        (leafletMapReady)="onMapReady($event)"
+>
+<!-- <div *ngFor="let l of (mainMapService.mapOptionsBehaviorSubject | async).layers" [leafletLayer]="l"></div> -->
+</div>

@@ -1,0 +1,148 @@
+<div class="container mt-3">
+
+  <div class="row" *ngIf="!spinnerShowing">
+    <div class="col">
+      <button (click)="openCloseAddTicketModal()" type="button" class="btn btn-secondary float-right">
+        <i class="material-icons ticket-details__back">close</i>
+      </button>
+      <h4 class="mb-3">Neue Meldung aufgeben</h4>
+    </div>
+  </div>
+  <wizard navBarLayout="large-empty-symbols" *ngIf="!spinnerShowing">
+    <wizard-step navigationSymbol="&#xE8D2;" navigationSymbolFontFamily="Material Icons">
+      <ng-template wizardStepTitle>
+        <span class="d-none d-sm-block my__step-title">Schritt 1: Beschreibung</span>
+      </ng-template>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h6>Beschreibung</h6>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="bmd-label-floating">Bitte beschreibe deine Meldung hier kurz.</label>
+                <input type="email" class="form-control" [value]="ticketDescription" (input)="ticketDescription = $event.target.value">
+                <span class="bmd-help">Versuche in einem kurzen Satz anzugeben, was du melden willst.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h6>Kategorie</h6>
+              <span class="my__section-description">Bitte wähle eine passende Kategorie für deine Meldung.</span>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-3" *ngFor="let category of (ticketService.getTicketCategories() | async)">
+              <div class="card mt-2" (click)="addTicketCategory(category)" [ngClass]="{'my__card-selected': category === selectedTicketCategory}">
+                <div class="card-body">
+                  <span>{{ category.name }}</span>
+                  <i *ngIf="category === selectedTicketCategory" class="material-icons my__category-selected">done</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-raised btn-primary mt-3 mb-3 float-right" [disabled]="!selectedTicketCategory || ticketDescription === ''"
+        nextStep>Weiter</button>
+    </wizard-step>
+    <wizard-step navigationSymbol="&#xE439;" navigationSymbolFontFamily="Material Icons">
+      <ng-template wizardStepTitle>
+        <span class="d-none d-sm-block my__step-title">Schritt 2: Foto</span>
+      </ng-template>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h6>Foto hinzufügen</h6>
+              <span class="my__section-description">Bitte lade ein Foto deiner Meldung hoch. Wenn dein Foto Geokoordinaten enthält, wird die Position deiner Meldung
+                im nächsten Schritt automatisch vorbestimmt.</span>
+              <div class="mt-3">
+                <image-upload [style]="customStyle" [max]="3" (removed)="onRemoved($event)" [fileTooLargeMessage]="'Sorry deine Fotodatei ist zu groß!'"
+                  (uploadFinished)="onUploadFinished($event)" [extensions]="['jpg']" buttonCaption="Foto hinzufügen" dropBoxMessage=" "
+                  clearButtonCaption="X">
+                </image-upload>
+                <p *ngIf="geoLocationFromImage" class="mt-1">Die Position des Fotos konnte ermittelt werden ({{ geoLocationFromImage }}) </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-raised btn-secondary mt-3 mb-3" previousStep>Zurück</button>
+      <button type="button" class="btn btn-raised btn-primary mt-3 mb-3 float-right" [disabled]="!uploadedImages.length" (click)="focusOrDrawMarker()"
+        nextStep>Weiter</button>
+    </wizard-step>
+    <wizard-step navigationSymbol="&#xE55F;" navigationSymbolFontFamily="Material Icons">
+      <ng-template wizardStepTitle>
+        <span class="d-none d-sm-block my__step-title">Schritt 3: Position</span>
+      </ng-template>
+      <div class="home__leaflet-container mt-3" leaflet [leafletOptions]="options" [leafletLayers]="layers" (leafletMapReady)="onMapReady($event)"></div>
+      <button type="button" class="btn btn-raised btn-primary mt-3 mb-3 float-right" (click)="focusOrDrawMarker(); leafletTicketSummaryMapComponent.focusOrDrawMarker();"
+        [disabled]="!(currentLocationExistsSubject | async )" nextStep>Weiter</button>
+      <button type="button" class="btn btn-raised btn-secondary mt-3 mb-3" previousStep>Zurück</button>
+    </wizard-step>
+    <wizard-step navigationSymbol="&#xE876;" navigationSymbolFontFamily="Material Icons">
+      <ng-template wizardStepTitle>
+        <span class="d-none d-sm-block my__step-title">Zusammenfassung</span>
+      </ng-template>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h6>Beschreibung</h6>
+              <span>{{ticketDescription}}</span>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <h6>Kategorie</h6>
+              <span>{{selectedTicketCategory?.name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="card mt-3">
+            <div class="card-body">
+              <h6>Foto(s)</h6>
+              <div id="pictures-carousel" class="carousel slide mt-3" data-interval="false">
+                <ol class="carousel-indicators" *ngIf="uploadedImages.length > 1">
+                  <li data-target="#pictures-carousel" [attr.data-slide-to]="i" [ngClass]="{'active': i === 0}" *ngFor="let img of uploadedImages; let i = index;"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item" [ngClass]="{'active': i === 0}" *ngFor="let img of uploadedImages; let i = index;">
+                    <img class="d-block mx-auto" style="height:300px;" [src]="img.src" alt="First slide">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#pictures-carousel" role="button" data-slide="prev" *ngIf="uploadedImages.length > 1">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#pictures-carousel" role="button" data-slide="next" *ngIf="uploadedImages.length > 1">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mt-3">
+            <div class="card-body">
+              <h6>Position</h6>
+              <app-leaflet-ticket-summary-map #leafletTicketSummaryMapComponent></app-leaflet-ticket-summary-map>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-raised btn-primary mt-3 mb-3 float-right" (click)="upload()" [disabled]="!(isTicketFormValid())">Meldung aufgeben</button>
+      <button type="button" class="btn btn-raised btn-secondary mt-3 mb-3" (click)="focusOrDrawMarker();" previousStep>Zurück</button>
+    </wizard-step>
+  </wizard>
+  <app-loading-spinner [(show)]="spinnerShowing" name="addTicketSpinner"></app-loading-spinner>
+</div>

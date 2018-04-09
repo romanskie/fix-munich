@@ -1,0 +1,37 @@
+<div class="container d-flex vh_without_nav">
+  <div class="row justify-content-center align-self-center card mx-auto" style="max-width: 25rem;">
+    <div class="card-body">
+      <h4 class="card-title">Registrierung</h4>
+      <form class="pt-1">
+        <div class="form-group">
+          <label for="inputEmailRegistration" class="bmd-label-floating">Möchtest du ein Foto zu deinem Profil hinzufügen?</label>
+          <image-upload [max]="1" (removed)="onRemoved($event)" [fileTooLargeMessage]="'Sorry deine Fotodatei ist zu groß!'" (uploadFinished)="onUploadFinished($event)"
+            [extensions]="['jpg', 'png']" buttonCaption="Upload" dropBoxMessage=" " clearButtonCaption="X">
+          </image-upload>
+        </div>
+        <div class="form-group">
+          <label for="inputEmailRegistration" class="bmd-label-floating">E-Mail-Adresse</label>
+          <input type="email" id="inputEmailRegistration" class="form-control" required [value]="registrationEmailAddress" (input)="registrationEmailAddress = $event.target.value"
+            autocomplete="on">
+          <span class="bmd-help">Wir geben Ihre E-Mail-Adresse nicht an Dritte weiter.</span>
+        </div>
+        <div class="form-group">
+          <label for="inputNicknameRegistration" class="bmd-label-floating">Nickname</label>
+          <input type="text" id="inputNicknameRegistration" class="form-control" required [value]="registrationNickname" (input)="registrationNickname = $event.target.value">
+          <!-- <span class="bmd-help">Wir geben Ihre E-Mail-Adresse nicht an Dritte weiter.</span> -->
+        </div>
+        <div class="form-group">
+          <label for="inputPasswordRegistration" class="bmd-label-floating">Passwort</label>
+          <input type="password" id="inputPasswordRegistration" class="form-control" required [value]="registrationPassword" (input)="registrationPassword = $event.target.value"
+            autocomplete="off">
+          <span class="bmd-help">Bitte geben Sie hier Ihr Passwort ein.</span>
+        </div>
+        <button class="btn btn-primary btn-raised w-100 mt-3" type="button" (click)="submitRegistration()">registrieren</button>
+        <div class="mt-1">
+          <span>Bereits registriert? Hier geht's zur
+            <a [routerLink]="['/login']">Anmeldung</a>.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
