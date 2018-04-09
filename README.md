@@ -1,6 +1,6 @@
 FIX-MUNICH
 ===========
-Diese Angular Applikation wurde als Projekt im Zusammenahng mit dem Kurs Web-Programmierung an der LMU Universität München entwickelt. Voraussetzung war der Einsatz von Angular 5 als Frontend Technologie. Das Backend wurde zu Demozwecken mit Firebase umgesetzt.
+Diese Angular Applikation wurde als Projekt im Zusammenahng mit dem Kurs Web-Programmierung an der LMU Universität München entwickelt. Voraussetzung war der Einsatz von Angular 5 als Frontend Technologie. Die interaktive Map wurde mittels Leaflet.js umgesetzt. Für das Backend wurde zu Demozwecken Firebase verwendet.
 
 Was macht fix munich?
 ===============
