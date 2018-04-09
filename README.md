@@ -1,29 +1,14 @@
-# README #
+FIX-MUNICH:
+===========
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Was machen wir?
+===============
+fix munich ist eine Bürgerplatform, auf der Mängel, die durch die Stadt oder Gemeinde verwaltet werden sollen, gemeldet werden können. Wir geben deine Meldung an die jeweilige Stadt bzw. Gemeinde zur Bearbeitung weiter. Du kannst alle erfassten Mängel auf der Karte einsehen.
 
-### What is this repository for? ###
+Wie funktioniert's?
+===================
+Einfach neue Meldung auswählen, Meldung kurz beschreiben, eine passende Kategorie auswählen, ein Foto der Meldung hochladen und die Position der Meldung auf der Karte auswählen. Das war's!
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Wieso das Ganze?
+================
+Städte und Gemeinden können mit fix munich Kosten einsparen, da die Mängelerfassung durch euch, die Bürger, übernommen wird. Außerdem können durch fix munich mehr Mängel erfasst und beseitigt werden, was zu höherer Lebensqualität in Städten beiträgt.
