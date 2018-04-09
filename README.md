@@ -14,3 +14,7 @@ Wieso das Ganze?
 ================
 Städte und Gemeinden können mit fix munich Kosten einsparen, da die Mängelerfassung durch euch, die Bürger, übernommen wird. Außerdem können durch fix munich mehr Mängel erfasst und beseitigt werden, was zu höherer Lebensqualität in Städten beiträgt.
 
+Wo ist fix munich zu finden?
+============================
+Aktuell ist die Applikation unter folgender URL verfügbar: http://dev-icestorm.net/start/overview
+
